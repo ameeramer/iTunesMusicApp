@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		826615B61D6F1EA000E3774C /* ArtistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826615B51D6F1EA000E3774C /* ArtistTableViewController.swift */; };
+		826615B81D6F2A6C00E3774C /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826615B71D6F2A6C00E3774C /* SongCell.swift */; };
+		826615BA1D6F2B1500E3774C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826615B91D6F2B1500E3774C /* Song.swift */; };
+		826615BC1D6F2B2500E3774C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826615BB1D6F2B2500E3774C /* Artist.swift */; };
+		826615BE1D6F2C1200E3774C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826615BD1D6F2C1200E3774C /* APIClient.swift */; };
 		82752DAC1D6F13BC00C8956A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82752DAB1D6F13BC00C8956A /* TableViewController.swift */; };
 		82E5D8DD1D6F0D8D008F02B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5D8DC1D6F0D8D008F02B6 /* AppDelegate.swift */; };
 		82E5D8E21D6F0D8D008F02B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82E5D8E01D6F0D8D008F02B6 /* Main.storyboard */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		826615B51D6F1EA000E3774C /* ArtistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewController.swift; sourceTree = "<group>"; };
+		826615B71D6F2A6C00E3774C /* SongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		826615B91D6F2B1500E3774C /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		826615BB1D6F2B2500E3774C /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		826615BD1D6F2C1200E3774C /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = "../../../../Downloads/iOS-DisplayingDataTableViews-StarterFiles/RestaurantFinder/RestaurantFinder/APIClient.swift"; sourceTree = "<group>"; };
 		82752DAB1D6F13BC00C8956A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 		82E5D8D91D6F0D8D008F02B6 /* iTunesMusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesMusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E5D8DC1D6F0D8D008F02B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,12 +64,17 @@
 		82E5D8DB1D6F0D8D008F02B6 /* iTunesMusicApp */ = {
 			isa = PBXGroup;
 			children = (
+				826615BD1D6F2C1200E3774C /* APIClient.swift */,
 				82E5D8DC1D6F0D8D008F02B6 /* AppDelegate.swift */,
 				82752DAB1D6F13BC00C8956A /* TableViewController.swift */,
 				82E5D8E01D6F0D8D008F02B6 /* Main.storyboard */,
 				82E5D8E31D6F0D8D008F02B6 /* Assets.xcassets */,
 				82E5D8E51D6F0D8D008F02B6 /* LaunchScreen.storyboard */,
 				82E5D8E81D6F0D8D008F02B6 /* Info.plist */,
+				826615B51D6F1EA000E3774C /* ArtistTableViewController.swift */,
+				826615B71D6F2A6C00E3774C /* SongCell.swift */,
+				826615B91D6F2B1500E3774C /* Song.swift */,
+				826615BB1D6F2B2500E3774C /* Artist.swift */,
 			);
 			path = iTunesMusicApp;
 			sourceTree = "<group>";
@@ -136,8 +151,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826615BC1D6F2B2500E3774C /* Artist.swift in Sources */,
+				826615BE1D6F2C1200E3774C /* APIClient.swift in Sources */,
+				826615B81D6F2A6C00E3774C /* SongCell.swift in Sources */,
 				82E5D8DD1D6F0D8D008F02B6 /* AppDelegate.swift in Sources */,
 				82752DAC1D6F13BC00C8956A /* TableViewController.swift in Sources */,
+				826615B61D6F1EA000E3774C /* ArtistTableViewController.swift in Sources */,
+				826615BA1D6F2B1500E3774C /* Song.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

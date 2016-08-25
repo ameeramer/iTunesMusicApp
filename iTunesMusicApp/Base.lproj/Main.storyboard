@@ -15,15 +15,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="tCy-Vy-B2i">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="78" id="tCy-Vy-B2i" customClass="SongCell" customModule="iTunesMusicApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tCy-Vy-B2i" id="glD-0q-B2l">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are never getting back together" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c0L-Pw-ep0">
+                                            <rect key="frame" x="76" y="16" width="256" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="60x60bb-85" translatesAutoresizingMaskIntoConstraints="NO" id="LP7-4d-AZL">
+                                            <rect key="frame" x="8" y="8" width="60" height="61"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="GfS-ZA-FsE"/>
+                                            </constraints>
+                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2v0-Se-jxe">
-                                            <rect key="frame" x="478" y="7" width="114" height="30"/>
+                                            <rect key="frame" x="76" y="47" width="114" height="30"/>
                                             <state key="normal" title="Michael Jackson"/>
                                             <connections>
                                                 <segue destination="ch3-hi-rp8" kind="show" id="4Ic-1v-VcL"/>
@@ -31,10 +43,22 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="2v0-Se-jxe" firstAttribute="centerY" secondItem="glD-0q-B2l" secondAttribute="centerY" id="BSp-zh-u4x"/>
-                                        <constraint firstItem="2v0-Se-jxe" firstAttribute="trailing" secondItem="glD-0q-B2l" secondAttribute="trailingMargin" id="NqA-HI-TeV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="LP7-4d-AZL" secondAttribute="bottom" id="0w6-vk-wOV"/>
+                                        <constraint firstItem="c0L-Pw-ep0" firstAttribute="leading" secondItem="LP7-4d-AZL" secondAttribute="trailing" constant="8" id="3k0-tT-KaV"/>
+                                        <constraint firstItem="LP7-4d-AZL" firstAttribute="top" secondItem="glD-0q-B2l" secondAttribute="topMargin" id="46K-0I-oHT"/>
+                                        <constraint firstItem="c0L-Pw-ep0" firstAttribute="top" secondItem="glD-0q-B2l" secondAttribute="topMargin" constant="8" id="MDZ-UH-p95"/>
+                                        <constraint firstItem="LP7-4d-AZL" firstAttribute="leading" secondItem="glD-0q-B2l" secondAttribute="leadingMargin" id="Ou2-6Y-pxJ"/>
+                                        <constraint firstItem="LP7-4d-AZL" firstAttribute="centerY" secondItem="glD-0q-B2l" secondAttribute="centerY" id="Qnx-15-FKY"/>
+                                        <constraint firstItem="2v0-Se-jxe" firstAttribute="leading" secondItem="LP7-4d-AZL" secondAttribute="trailing" constant="8" id="u5V-Fi-029"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2v0-Se-jxe" secondAttribute="bottom" constant="-8" id="umx-rK-adO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                <connections>
+                                    <outlet property="artistLabel" destination="2v0-Se-jxe" id="8Pk-Yd-GGo"/>
+                                    <outlet property="artwork" destination="LP7-4d-AZL" id="A1e-Vy-xLq"/>
+                                    <outlet property="songNameLabel" destination="c0L-Pw-ep0" id="oit-RP-Mj9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -48,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="1831" y="627"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Artist Table View Controller-->
         <scene sceneID="cHO-1o-Qh8">
             <objects>
-                <tableViewController id="ch3-hi-rp8" customClass="TableViewController" customModule="iTunesMusicApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ch3-hi-rp8" customClass="ArtistTableViewController" customModule="iTunesMusicApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qif-pq-rh2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,4 +119,7 @@
             <point key="canvasLocation" x="1019" y="627"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="60x60bb-85" width="60" height="60"/>
+    </resources>
 </document>

@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  ArtistTableViewController.swift
 //  iTunesMusicApp
 //
 //  Created by Ameer Amer on 25/08/2016.
@@ -8,13 +8,10 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
-    
-    
-    
+class ArtistTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,25 +29,23 @@ class TableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 0
     }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 78
-    }
-    
+
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SongCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
         // Configure the cell...
-        
+
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
