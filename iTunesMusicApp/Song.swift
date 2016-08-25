@@ -9,15 +9,26 @@
 import Foundation
 import UIKit
 
+extension CollectionType {
+    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Generator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
 
-class Song: JSONDecodable {
+struct Song {
     let songName: String
     let artistName: String
     let artworkPath: String
-    
-    required init?(JSON: [String : AnyObject]) {
-        guard let song = JSON["feed"]?["entry"]?["im:name"]?["label"] as? String else {
+}
+
+extension Song: JSONDecodable {
+     init?(JSON: [String : AnyObject]) {
+        guard let nameDict = JSON["im:name"] as? [String: AnyObject], name = nameDict["label"] as? String, imgArr = JSON["im:image"] as? [[String: AnyObject]], img60Dict = imgArr[safe: 1], image = img60Dict["label"] as? String, artistDict = JSON["im:artist"] as? [String: AnyObject], artist = artistDict["label"] as? String else {
             return nil
         }
+        self.songName = name
+        self.artworkPath = image
+        self.artistName = artist
     }
 }

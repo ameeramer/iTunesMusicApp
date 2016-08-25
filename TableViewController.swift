@@ -8,19 +8,29 @@
 
 import UIKit
 
+
 class TableViewController: UITableViewController {
     
+    var songs: [Song] = [] {
+        didSet{
+            tableView.reloadData()
+        }
+    }
     
+    let songClient = SongClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        songClient.fetchTracks { result in
+            switch result {
+            case .Success(let songs):
+                self.songs = songs
+            case .Failure(let error):
+                print("\(error)")
+            }
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +47,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return songs.count
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -48,6 +58,14 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SongCell
         // Configure the cell...
         
+        let path: String = songs[indexPath.row].artworkPath
+        
+        let url = NSURL(string: path)
+        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        
+        cell.songNameLabel.text = songs[indexPath.row].songName
+        cell.artistLabel.setTitle(songs[indexPath.row].artistName, forState: .Normal)
+        cell.artwork.image = UIImage(data: data!)
         return cell
     }
     

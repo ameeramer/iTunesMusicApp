@@ -22,7 +22,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are never getting back together" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c0L-Pw-ep0">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are never getting back together" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0L-Pw-ep0">
                                             <rect key="frame" x="76" y="16" width="256" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -46,6 +46,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="LP7-4d-AZL" secondAttribute="bottom" id="0w6-vk-wOV"/>
                                         <constraint firstItem="c0L-Pw-ep0" firstAttribute="leading" secondItem="LP7-4d-AZL" secondAttribute="trailing" constant="8" id="3k0-tT-KaV"/>
                                         <constraint firstItem="LP7-4d-AZL" firstAttribute="top" secondItem="glD-0q-B2l" secondAttribute="topMargin" id="46K-0I-oHT"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="c0L-Pw-ep0" secondAttribute="trailing" constant="8" id="CCm-cb-Y2X"/>
                                         <constraint firstItem="c0L-Pw-ep0" firstAttribute="top" secondItem="glD-0q-B2l" secondAttribute="topMargin" constant="8" id="MDZ-UH-p95"/>
                                         <constraint firstItem="LP7-4d-AZL" firstAttribute="leading" secondItem="glD-0q-B2l" secondAttribute="leadingMargin" id="Ou2-6Y-pxJ"/>
                                         <constraint firstItem="LP7-4d-AZL" firstAttribute="centerY" secondItem="glD-0q-B2l" secondAttribute="centerY" id="Qnx-15-FKY"/>
