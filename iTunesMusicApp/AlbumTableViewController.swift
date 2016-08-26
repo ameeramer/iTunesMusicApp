@@ -22,7 +22,6 @@ class AlbumTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(artistID)
         artistClient.fetchAlbums(artistID) { result in
             switch result {
                 case .Success(let albums):
