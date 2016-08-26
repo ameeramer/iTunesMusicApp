@@ -17,7 +17,7 @@ enum SongEndPoint: Endpoint {
     
     var path: String {
         switch self {
-        case .TopTracks: return "/us/rss/topsongs/limit=50/explicit=true/json"
+        case .TopTracks: return "/us/rss/topsongs/limit=10/explicit=true/json"
         }
     }
     var parameters: [String: AnyObject] {

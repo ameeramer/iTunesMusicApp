@@ -34,7 +34,6 @@ extension Song: JSONDecodable {
         let idArray = lastElem.componentsSeparatedByString("?")
         let id = idArray[0].substringFromIndex(idArray[0].startIndex.advancedBy(2))
         self.artistId = id
-        print(self.artistId)
         self.songName = name
         self.artworkPath = image
         self.artistName = artist
