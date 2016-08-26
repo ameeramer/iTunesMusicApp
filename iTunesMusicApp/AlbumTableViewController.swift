@@ -1,17 +1,36 @@
 //
-//  ArtistTableViewController.swift
+//  AlbumTableViewController.swift
 //  iTunesMusicApp
 //
-//  Created by Ameer Amer on 25/08/2016.
+//  Created by Ameer Amer on 26/08/2016.
 //  Copyright © 2016 Ameer Amer. All rights reserved.
 //
 
 import UIKit
 
-class ArtistTableViewController: UITableViewController {
+class AlbumTableViewController: UITableViewController {
 
+    var albums: [Album] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    let artistClient = ArtistClient()
+
+    var artistID: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(artistID)
+        artistClient.fetchAlbums(artistID) { result in
+            switch result {
+                case .Success(let albums):
+                self.albums = albums
+                case .Failure(let error):
+                print("\(error)")
+            }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,23 +48,33 @@ class ArtistTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return albums.count
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 78
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("AlbumCell", forIndexPath: indexPath) as! albumCell
         // Configure the cell...
-
+        
+        let path: String = albums[indexPath.row].artworkPath
+        
+        let url = NSURL(string: path)
+        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        
+        cell.albumNameLabel.text = albums[indexPath.row].albumName
+        cell.artwork.image = UIImage(data: data!)
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

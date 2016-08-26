@@ -1,5 +1,5 @@
 //
-//  SongClient.swift
+//  ArtistClient.swift
 //  iTunesMusicApp
 //
 //  Created by Ameer Amer on 26/08/2016.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum SongEndPoint: Endpoint {
-    case TopTracks
+enum ArtistEndPoint: Endpoint {
+    case ArtistById(id: String)
     
     var baseURL: String {
         return "https://itunes.apple.com"
@@ -17,15 +17,18 @@ enum SongEndPoint: Endpoint {
     
     var path: String {
         switch self {
-        case .TopTracks: return "/us/rss/topsongs/limit=50/explicit=true/json"
+        case .ArtistById: return "/lookup"
         }
     }
     var parameters: [String: AnyObject] {
-        return [:]
+        switch self {
+        case .ArtistById(let id):
+            return ["id": id, "entity" : "album"]
+        }
     }
 }
 
-final class SongClient: APIClient {
+final class ArtistClient: APIClient {
     let configuration: NSURLSessionConfiguration
     
     lazy var session: NSURLSession = {
@@ -40,14 +43,15 @@ final class SongClient: APIClient {
         self.init(config: .defaultSessionConfiguration())
     }
     
-    func fetchTracks(completion: APIResult<[Song]> -> Void) {
-        let endpoint = SongEndPoint.TopTracks
+    func fetchAlbums(id: String, completion: APIResult<[Album]> -> Void) {
+        let endpoint = ArtistEndPoint.ArtistById(id: id)
         fetch(endpoint, parse: { json in
-            guard let feed = json["feed"] as? [String: AnyObject], entry = feed["entry"] as? [[String: AnyObject]] else {
+            guard var results = json["results"] as? [[String: AnyObject]] else {
                 return nil
             }
-            return entry.flatMap() { songDict in
-                return Song(JSON: songDict)
+            results.removeFirst()
+            return results.flatMap() { albumDict in
+                return Album(JSON: albumDict)
             }
             }, completion: completion)
     }

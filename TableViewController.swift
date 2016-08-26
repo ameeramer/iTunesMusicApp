@@ -17,8 +17,9 @@ class TableViewController: UITableViewController {
         }
     }
     
-    let songClient = SongClient()
     
+    let songClient = SongClient()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +66,7 @@ class TableViewController: UITableViewController {
         
         cell.songNameLabel.text = songs[indexPath.row].songName
         cell.artistLabel.setTitle(songs[indexPath.row].artistName, forState: .Normal)
+        cell.artistLabel.tag = indexPath.row
         cell.artwork.image = UIImage(data: data!)
         return cell
     }
@@ -105,14 +107,21 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowAlbums" {
+            if let button = sender as? UIButton {
+                let row = button.tag
+                let AlbumView = segue.destinationViewController as! AlbumTableViewController
+                    
+                let song = songs[row]
+                AlbumView.artistID = song.artistId                
+            }
+        }
     }
-    */
+
 
 }
